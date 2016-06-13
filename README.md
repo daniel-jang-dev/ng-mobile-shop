@@ -17,7 +17,7 @@
 
 ## Functions
 
-### Insert, Update and Delete items
+### Data communication with Datbase: Add, Edit and Delete items
 ![alt tag](screenshots/s1.png)
 
 ### Filter by name and/or by category
@@ -26,4 +26,4 @@
 ### Cart for mobile
 ![alt tag](screenshots/s2.png)
 
-## Skills and tools: AngularJS 1 (angular-animate, angular-material, ui-router), Material Design Icon, Lodash.js, Firebase, Angular-Firebase, NPM
+#### Skills and tools: AngularJS 1 (angular-animate, angular-material, ui-router), Material Design Icon, Lodash.js, Firebase, Angular-Firebase, NPM
