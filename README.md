@@ -26,4 +26,8 @@
 ### Cart for mobile
 ![alt tag](screenshots/s2.png)
 
-#### Skills and tools: AngularJS 1 (angular-animate, angular-material, ui-router), Material Design Icon, Lodash.js, Firebase, Angular-Firebase, NPM
+#### Skills and tools 
+AngularJS 1 (including angular-material, angular-animate, ui-router), Firebase, Angular-Firebase, Material Design Icon, Lodash.js,  NPM, http-server
+
+#### Notice
+please clear cache when the application runs
