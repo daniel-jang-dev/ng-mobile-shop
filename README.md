@@ -4,7 +4,7 @@
 
 ![alt tag](screenshots/main.png)
 
-## Fully responsive layout
+## Fully responsive design
 
 ### tablet (wide)
 ![alt tag](screenshots/r1.png)
