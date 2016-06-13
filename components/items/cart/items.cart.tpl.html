@@ -1,0 +1,16 @@
+<!-- Side navigation bar for cart information for mobile screen -->
+
+<md-sidenav class="md-sidenav-right" md-component-id="sideNavCart" md-is-open="vm.isSideNavOpen">
+
+	<md-toolbar>
+		<h1 class="md-toolbar-tools">Shopping Cart</h1>
+	</md-toolbar>
+
+	<md-content layout-padding layout='column'>
+		TOTAL: {{vm.totalprice | currency }}
+		<md-button class="md-raised md-accent" ng-click="vm.clearCartItems()">Clear Cart</md-button>
+		<md-button class="md-raised md-primary md-hue-2">Checkout</md-button>
+		<md-button class="md-raised" ng-click="vm.closeSideNav()"> Close </md-button>
+	</md-content>
+
+</md-sidenav>

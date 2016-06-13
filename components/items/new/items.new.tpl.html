@@ -1,0 +1,39 @@
+<!-- Side navigation for new item information -->
+
+<md-sidenav class="md-sidenav-left" md-component-id="sidebar" md-is-open="vm.isSideNavOpen">
+
+	<md-toolbar>
+		<h1 class="md-toolbar-tools">Add an Item</h1>
+	</md-toolbar>
+
+	<md-content layout-padding>
+		<form>
+			<md-input-container>
+				<label for="title">Title</label>
+				<input type="text" id="title" md-autofocus ng-model="vm.item.title">
+			</md-input-container>
+			<md-input-container>
+				<label for="price">Price</label>
+				<input type="text" id="price" ng-model="vm.item.price">
+			</md-input-container>
+			<md-input-container>
+				<label for="description">Description</label>
+				<textarea type="text" id="description" ng-model="vm.item.description"></textarea>
+			</md-input-container>
+			<md-input-container>
+				<label for="image">Image Link</label>
+				<input type="text" id="iamge" ng-model="vm.item.image">
+			</md-input-container>
+			<md-button class="md-primary" ng-click="vm.saveItem(vm.item)" ng-if="!vm.editing">
+				Save
+			</md-button>
+			<md-button class="md-primary" ng-click="vm.saveEdit()" ng-if="vm.editing">
+				Save Edit
+			</md-button>
+			<md-button class="md-warn" ng-click="vm.closeSideNav()">
+				Cancel
+			</md-button>
+		</form>
+	</md-content>
+
+</md-sidenav>

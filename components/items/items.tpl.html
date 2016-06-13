@@ -1,0 +1,104 @@
+<!-- Tool Bar -->
+<md-toolbar>
+	<div class="md-toolbar-tools">
+
+		<a href="#/items"><p><strong>Mobile Shop</strong></p></a>
+
+		<!-- left buttons for small screen -->
+		<md-button shos hide-gt-sm aria-label="Plus-circle" class="md-icon-button" ng-click="vm.openSidebar()">
+		    <md-icon md-svg-icon="plus-circle"></md-icon>
+		</md-button>
+		<md-button shos hide-gt-sm aria-label="Magnify" class="md-icon-button" ng-click="showFilters = true">
+		    <md-icon md-svg-icon="magnify"></md-icon>
+		</md-button>
+		
+		<!-- left buttons for larger screen -->
+		<md-button hide show-gt-sm aria-label="Plus-circle" layout='row' ng-click="vm.openSidebar()">
+		    <md-icon md-svg-icon="plus-circle"></md-icon>
+		    <p> new item </p>
+		</md-button>
+		<md-button hide show-gt-sm aria-label="Magnify" layout='row' ng-click="showFilters = true">
+		    <md-icon md-svg-icon="magnify"></md-icon>
+		    <p> search </p>
+		</md-button>
+
+		<div flex></div>
+
+		<!-- cart icon for right-side-nav for mobile screen -->
+		<md-button hide show-xs aria-label="Cart" class="md-icon-button" ng-click="vm.openCartIcon()">
+		    <md-icon md-svg-icon="cart"></md-icon>
+		</md-button>
+
+		<!-- price and right buttons for larger screen -->
+		<div hide show-gt-xs>
+			TOTAL: {{vm.totalprice | currency }}
+			<md-button class="md-raised md-accent" ng-click="vm.clearCartItems()">Clear Cart</md-button>
+			<md-button class="md-raised md-primary md-hue-2">Checkout</md-button>
+		</div>
+	</div>
+</md-toolbar>
+
+<!-- ui view for side nav -->
+<ui-view></ui-view>
+
+<!-- Filters -->
+<div layout="row" layout-align="center center" ng-show="showFilters">
+	
+	<!-- filter by name -->
+	<md-input-container>
+		<label>Enter Search Term</label>
+		<input type="text" ng-model="itemsFilter">
+	</md-input-container>
+
+	<!-- filter by category -->
+	<md-input-container>
+		<label>Category</label>
+		<md-select ng-model="category">
+			<md-option ng-repeat="category in vm.categories" value="{{ category }}">
+				{{ category }}
+			</md-option>
+		</md-select>
+	</md-input-container>
+
+	<md-button class="md-warn" ng-click="itemsFilter=''; category ='' ">
+		Clear
+	</md-button>
+
+</div>
+
+<!-- main content -->
+<md-content layout="row" layout-wrap>
+
+	<!-- card display configuration: mobile - 1 item, small - 2 items, medium - 3items, large and X large - 4items per each row -->
+	<!-- filter by name & filter by category -->
+	<md-card flex-xs="95" flex-sm="45" flex-md="30" flex-gt-md="20" 
+		ng-repeat="item in vm.items | filter: itemsFilter | filter: category" id="itemCard">
+		<div><img ng-src="{{ item.image }}" alt="" class="md-card-image"></div>
+		<md-card-content>
+			<div class="item-info" ng-show="!showContact">
+				<h2 class="md-title">{{ item.title }}</h2>
+				<h2>{{ item.posted | date :"longDate" }}</h2>
+				<h3> {{ item.price | currency}} </h3>
+				<p> {{ item.description }} </p>
+			</div>
+			<div ng-show="showContact">
+				<p><md-icon class="mdi mdi-account"></md-icon> {{ item.contact.name }} </p>
+				<p><md-icon class="mdi mdi-phone"></md-icon> {{ item.contact.phone }} </p>
+				<p><md-icon class="mdi mdi-email"></md-icon> {{ item.contact.email }} </p>
+			</div>
+			<div layout-gt-md="row" layout="column">
+				<md-button ng-click="showContact = true" ng-show="!showContact" class="md-raised md-primary md-hue-1">Contact</md-button>
+				<md-button ng-click="showContact = false" ng-show="showContact" class="md-raised md-primary">Details</md-button>
+				<md-button ng-click="vm.addToCart(item)" class="md-raised md-primary md-hue-2">Add to Cart</md-button>
+				<md-button ng-click="showAdmin = true" ng-show="!showAdmin" class="md-raised">Admin</md-button>
+				<md-button ng-click="showAdmin = false" ng-show="showAdmin" class="md-raised">Close</md-button>
+			</div>
+			<div ng-if="showAdmin">
+				<h3>Admin</h3>
+				<md-button class="md-raised md-primary" ng-click="vm.editItem(item)"> Edit </md-button>
+				<md-button class="md-raised md-accent" ng-click="vm.deleteItem($event, item)"> Delete </md-button>
+			</div>
+		</md-card-content>
+	</md-card>
+
+</md-content>

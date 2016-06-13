@@ -1,0 +1,23 @@
+// to align input container in a row
+md-input-container {
+	min-height: 0px !important;
+}
+md-input-container .md-errors-spacer {
+	min-height: 0px !important;
+}
+
+// animation for md-card
+#itemCard.ng-enter, #itemCard.ng-move {
+	transition: 0.6s all;
+	opacity: 0;
+}
+#itemCard.ng-enter.ng-enter-active, #itemCard.ng-move.ng-move-active {
+	opacity: 1;
+}
+#itemCard.ng-leave {
+	animation: 0.6s fade_item;
+}
+@keyframes fade_item {
+	from { opacity: 1; }
+	to { opacity: 0; }
+} 
