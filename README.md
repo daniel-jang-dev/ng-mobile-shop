@@ -27,7 +27,7 @@
 ![alt tag](screenshots/s2.png)
 
 #### Skills and tools 
-AngularJS 1 (including angular-material, angular-animate, ui-router), Firebase, Angular-Firebase, Material Design Icon, Lodash.js,  NPM, http-server
+AngularJS 1 (angular-material, angular-animate, ui-router, angular-firebase), Firebase, Material Design Icon, Lodash.js,  NPM, http-server
 
 #### Notice
 please clear cache when the application runs
