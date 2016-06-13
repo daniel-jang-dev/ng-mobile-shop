@@ -24,6 +24,6 @@
 ![alt tag](screenshots/f.png)
 
 ### Cart for mobile
-![alt tag](screenshots/r2.png)
+![alt tag](screenshots/s2.png)
 
 ## Skills and tools: AngularJS 1 (angular-animate, angular-material, ui-router), Material Design Icon, Lodash.js, Firebase, Angular-Firebase, NPM
